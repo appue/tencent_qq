@@ -1,4 +1,4 @@
-#import "TXQQ.h"
+#import "ShareQQ.h"
 #import <TencentOpenAPI/QQApiInterface.h>
 
 NSString *QQ_NOT_INSTALLED = @"QQ Client is not installed";
@@ -7,7 +7,7 @@ NSString *QQ_LOGIN_ERROR = @"QQ login error";
 NSString *QQ_LOGIN_CANCEL = @"QQ login cancelled";
 NSString *QQ_LOGIN_NETWORK_ERROR = @"QQ login network error";
 
-@implementation TXQQ
+@implementation ShareQQ
 /**
  *  插件初始化，主要用户appkey注册
  */

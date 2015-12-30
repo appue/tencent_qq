@@ -7,10 +7,10 @@ module.exports = {
 		if(args == null || args == undefined){
 			args = 0;
 		}
-		exec(successCallback, errorCallback, "TXQQ", "ssoLogin", [args]);
+		exec(successCallback, errorCallback, "ShareQQ", "ssoLogin", [args]);
 	},
 	logout:function(successCallback, errorCallback){
-		exec(successCallback, errorCallback, "TXQQ", "logout", []);
+		exec(successCallback, errorCallback, "ShareQQ", "logout", []);
 	},
 	shareToQQ:function(successCallback, errorCallback,args){
 		if(args == null || args == undefined){
@@ -31,7 +31,7 @@ module.exports = {
 		if(args.appName == null || args.appName == undefined){
 			args.appName = "";
 		}
-		exec(successCallback, errorCallback, "TXQQ", "shareToQQ", [args]);
+		exec(successCallback, errorCallback, "ShareQQ", "shareToQQ", [args]);
 	},
 	shareToQzone:function(successCallback, errorCallback,args){
 		if(args == null || args == undefined){
@@ -49,7 +49,7 @@ module.exports = {
 		if(args.imageUrl == null || args.imageUrl == undefined){
 			args.imageUrl = [];
 		}
-		exec(successCallback, errorCallback, "TXQQ", "shareToQzone", [args]);
+		exec(successCallback, errorCallback, "ShareQQ", "shareToQzone", [args]);
 	},
 	addToQQFavorites:function(successCallback, errorCallback,args){
 		if(args == null || args == undefined){
@@ -70,10 +70,10 @@ module.exports = {
 		if(args.appName == null || args.appName == undefined){
 			args.appName = "";
 		}
-		exec(successCallback, errorCallback, "TXQQ", "addToQQFavorites", [args]);
+		exec(successCallback, errorCallback, "ShareQQ", "addToQQFavorites", [args]);
 	},
 	checkClientInstalled:function(successCallback, errorCallback){
-		exec(successCallback, errorCallback, "TXQQ", "checkClientInstalled", []);
+		exec(successCallback, errorCallback, "ShareQQ", "checkClientInstalled", []);
 	}
 
 };

@@ -21,7 +21,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class TXQQ extends CordovaPlugin {
+public class ShareQQ extends CordovaPlugin {
 
     private static Tencent mTencent;
     private CallbackContext currentCallbackContext;
@@ -91,9 +91,9 @@ public class TXQQ extends CordovaPlugin {
 
                 @Override
                 public void run() {
-                    mTencent.login(TXQQ.this.cordova.getActivity(), "all",
+                    mTencent.login(ShareQQ.this.cordova.getActivity(), "all",
                             loginListener);
-//					mTencent.loginServerSide(TXQQ.this.cordova.getActivity(), "all",
+//					mTencent.loginServerSide(ShareQQ.this.cordova.getActivity(), "all",
 //							loginListener);
                 }
             };
@@ -149,7 +149,7 @@ public class TXQQ extends CordovaPlugin {
             @Override
             public void run() {
                 // TODO Auto-generated method stub
-                mTencent.shareToQQ(TXQQ.this.cordova.getActivity(), params,
+                mTencent.shareToQQ(ShareQQ.this.cordova.getActivity(), params,
                         qqShareListener);
             }
         });
@@ -164,7 +164,7 @@ public class TXQQ extends CordovaPlugin {
      * @return
      */
     private boolean checkClientInstalled(CallbackContext callbackContext) {
-        Boolean installed = mTencent.isSupportSSOLogin(TXQQ.this.cordova.getActivity());
+        Boolean installed = mTencent.isSupportSSOLogin(ShareQQ.this.cordova.getActivity());
         if (installed) {
             callbackContext.success();
         } else {
@@ -200,7 +200,7 @@ public class TXQQ extends CordovaPlugin {
 
             @Override
             public void run() {
-                mTencent.shareToQzone(TXQQ.this.cordova.getActivity(), params,
+                mTencent.shareToQzone(ShareQQ.this.cordova.getActivity(), params,
                         qZoneShareListener);
             }
         });
@@ -232,7 +232,7 @@ public class TXQQ extends CordovaPlugin {
 
             @Override
             public void run() {
-                mTencent.addToQQFavorites(TXQQ.this.cordova.getActivity(), params,
+                mTencent.addToQQFavorites(ShareQQ.this.cordova.getActivity(), params,
                         addToQQFavoritesListener);
             }
         });
@@ -284,33 +284,33 @@ public class TXQQ extends CordovaPlugin {
         @Override
         public void onComplete(Object response) {
             if (null == response) {
-                TXQQ.this.webView.sendPluginResult(new PluginResult(
+                ShareQQ.this.webView.sendPluginResult(new PluginResult(
                         PluginResult.Status.ERROR, QQ_RESPONSE_ERROR), currentCallbackContext.getCallbackId());
                 return;
             }
             JSONObject jsonResponse = (JSONObject) response;
             if (null != jsonResponse && jsonResponse.length() == 0) {
-                TXQQ.this.webView.sendPluginResult(new PluginResult(
+                ShareQQ.this.webView.sendPluginResult(new PluginResult(
                         PluginResult.Status.ERROR, QQ_RESPONSE_ERROR), currentCallbackContext.getCallbackId());
                 return;
             }
             initOpenidAndToken(jsonResponse);
             JSONObject jo = makeJson(mTencent.getAccessToken(),
                     mTencent.getOpenId());
-            TXQQ.this.webView.sendPluginResult(new PluginResult(
+            ShareQQ.this.webView.sendPluginResult(new PluginResult(
                     PluginResult.Status.OK, jo), currentCallbackContext.getCallbackId());
         }
 
         @Override
         public void onError(UiError e) {
             String msg = String.format("[%1$d]%2$s: %3$s", e.errorCode, e.errorMessage, e.errorDetail);
-            TXQQ.this.webView.sendPluginResult(new PluginResult(
+            ShareQQ.this.webView.sendPluginResult(new PluginResult(
                     PluginResult.Status.ERROR, msg), currentCallbackContext.getCallbackId());
         }
 
         @Override
         public void onCancel() {
-            TXQQ.this.webView.sendPluginResult(new PluginResult(
+            ShareQQ.this.webView.sendPluginResult(new PluginResult(
                     PluginResult.Status.ERROR, QQ_CANCEL_BY_USER), currentCallbackContext.getCallbackId());
         }
     };
@@ -320,20 +320,20 @@ public class TXQQ extends CordovaPlugin {
     IUiListener qqShareListener = new IUiListener() {
         @Override
         public void onCancel() {
-            TXQQ.this.webView.sendPluginResult(new PluginResult(
+            ShareQQ.this.webView.sendPluginResult(new PluginResult(
                     PluginResult.Status.ERROR, QQ_CANCEL_BY_USER), currentCallbackContext.getCallbackId());
         }
 
         @Override
         public void onComplete(Object response) {
-            TXQQ.this.webView.sendPluginResult(new PluginResult(
+            ShareQQ.this.webView.sendPluginResult(new PluginResult(
                     PluginResult.Status.OK), currentCallbackContext.getCallbackId());
         }
 
         @Override
         public void onError(UiError e) {
             String msg = String.format("[%1$d]%2$s: %3$s", e.errorCode, e.errorMessage, e.errorDetail);
-            TXQQ.this.webView.sendPluginResult(new PluginResult(
+            ShareQQ.this.webView.sendPluginResult(new PluginResult(
                     PluginResult.Status.ERROR, msg), currentCallbackContext.getCallbackId());
         }
 
@@ -345,20 +345,20 @@ public class TXQQ extends CordovaPlugin {
 
         @Override
         public void onCancel() {
-            TXQQ.this.webView.sendPluginResult(new PluginResult(
+            ShareQQ.this.webView.sendPluginResult(new PluginResult(
                     PluginResult.Status.ERROR, QZONE_SHARE_CANCEL), currentCallbackContext.getCallbackId());
         }
 
         @Override
         public void onError(UiError e) {
             String msg = String.format("[%1$d]%2$s: %3$s", e.errorCode, e.errorMessage, e.errorDetail);
-            TXQQ.this.webView.sendPluginResult(new PluginResult(
+            ShareQQ.this.webView.sendPluginResult(new PluginResult(
                     PluginResult.Status.ERROR, msg), currentCallbackContext.getCallbackId());
         }
 
         @Override
         public void onComplete(Object response) {
-            TXQQ.this.webView.sendPluginResult(new PluginResult(
+            ShareQQ.this.webView.sendPluginResult(new PluginResult(
                     PluginResult.Status.OK), currentCallbackContext.getCallbackId());
         }
 
@@ -369,20 +369,20 @@ public class TXQQ extends CordovaPlugin {
     IUiListener addToQQFavoritesListener = new IUiListener() {
         @Override
         public void onCancel() {
-            TXQQ.this.webView.sendPluginResult(new PluginResult(
+            ShareQQ.this.webView.sendPluginResult(new PluginResult(
                     PluginResult.Status.ERROR, QQFAVORITES_CANCEL), currentCallbackContext.getCallbackId());
         }
 
         @Override
         public void onComplete(Object response) {
-            TXQQ.this.webView.sendPluginResult(new PluginResult(
+            ShareQQ.this.webView.sendPluginResult(new PluginResult(
                     PluginResult.Status.OK), currentCallbackContext.getCallbackId());
         }
 
         @Override
         public void onError(UiError e) {
             String msg = String.format("[%1$d]%2$s: %3$s", e.errorCode, e.errorMessage, e.errorDetail);
-            TXQQ.this.webView.sendPluginResult(new PluginResult(
+            ShareQQ.this.webView.sendPluginResult(new PluginResult(
                     PluginResult.Status.ERROR, msg), currentCallbackContext.getCallbackId());
         }
     };

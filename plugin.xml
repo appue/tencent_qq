@@ -5,8 +5,8 @@
   id="cordova-plugin-qqsdk"
   version="1.0.0">
 
-  <name>TXQQ</name>
-  <description>Cordova TXQQ Plugin</description>
+  <name>ShareQQ</name>
+  <description>Cordova ShareQQ Plugin</description>
   <license>MIT</license>
   <keywords>cordova,qq</keywords>
   <repo>https://github.com/iVanPan/Cordova_QQ</repo>
@@ -21,15 +21,15 @@
   </engines>
 
   <!-- js module-->
-  <js-module src="www/TXQQ.js" name="TXQQ">
-    <clobbers target="TXQQ" />
+  <js-module src="www/ShareQQ.js" name="ShareQQ">
+    <clobbers target="ShareQQ" />
   </js-module>
 
   <!-- ios -->
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
-        <feature name="TXQQ">
-         <param name="ios-package" value="TXQQ"/>
+        <feature name="ShareQQ">
+         <param name="ios-package" value="ShareQQ"/>
        </feature>
        <!--whitelist for QQ SDK-->
       <access origin = "https://openmobile.qq.com/*"/>
@@ -94,8 +94,8 @@
             <string>mqzoneopensdk</string>
         </array>
     </config-file>
-    <header-file src="src/ios/TXQQ.h"/>
-    <source-file src="src/ios/TXQQ.m"/>
+    <header-file src="src/ios/ShareQQ.h"/>
+    <source-file src="src/ios/ShareQQ.m"/>
     <!--required frameworks for qq sdk-->
     <framework src="CoreGraphics.framework" />
     <framework src="CoreTelephony.framework" />
@@ -118,8 +118,8 @@
   <platform name="android">
     <hook type="before_plugin_install" src="scripts/android/android-hook.js" />
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="TXQQ" >
-        <param name="android-package" value="com.tencent.TXQQ"/>
+      <feature name="ShareQQ" >
+        <param name="android-package" value="com.tencent.ShareQQ"/>
       </feature>
       <!--whitelist for QQ SDK-->
       <access origin = "https://openmobile.qq.com/*"/>
@@ -159,7 +159,7 @@
       android:theme="@android:style/Theme.Translucent.NoTitleBar" >
     </activity>
   </config-file>
-  <source-file src="src/android/TXQQ.java" target-dir="src/org/zy/yuancheng/qq" />
+  <source-file src="src/android/ShareQQ.java" target-dir="src/org/zy/yuancheng/qq" />
   <!--QQ SDK version 2.9.4-->
   <source-file src="src/android/open_sdk_r5509.jar" target-dir="libs/" />
     <source-file src="src/android/mta-sdk-1.6.2.jar" target-dir="libs/" />
