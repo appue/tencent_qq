@@ -1,8 +1,8 @@
 {
-  "name": "com-tencent-qqsdk",
+  "name": "com.tencent.qqsdk",
   "version": "1.0.0",
   "description": "cordova qqsdk",
-  "main": "index.js",
+  "main": "shareqq.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,7 +11,7 @@
     "url": ""
   },
   "cordova": {
-    "id": "com-tencent-qqsdk",
+    "id": "com.tencent.qqsdk",
     "platforms": [
       "android",
       "ios"
