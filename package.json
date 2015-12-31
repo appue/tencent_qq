@@ -1,5 +1,5 @@
 {
-  "name": "cordova-plugin-qqsdk",
+  "name": "com-tencent-qqsdk",
   "version": "1.0.0",
   "description": "cordova qqsdk",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "url": ""
   },
   "cordova": {
-    "id": "cordova-plugin-qqsdk",
+    "id": "com-tencent-qqsdk",
     "platforms": [
       "android",
       "ios"

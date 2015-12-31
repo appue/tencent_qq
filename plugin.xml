@@ -2,15 +2,15 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
   xmlns:android="http://schemas.android.com/apk/res/android"
-  id="cordova-plugin-qqsdk"
+  id="com-tencent-qqsdk"
   version="1.0.0">
 
   <name>ShareQQ</name>
-  <description>Cordova ShareQQ Plugin</description>
+  <description>ShareQQ</description>
   <license>MIT</license>
-  <keywords>cordova,qq</keywords>
-  <repo>https://github.com/iVanPan/Cordova_QQ</repo>
-  <issue>https://github.com/iVanPan/Cordova_QQ/issues</issue>
+  <keywords>qq</keywords>
+  <repo></repo>
+  <issue></issue>
   
   <preference name="QQ_APP_ID" />
   
